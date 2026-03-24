@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+
+<html class="light" lang="ja"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "background": "#fdfcf9",
+              "on-surface": "#1a1a1a",
+              "border-dim": "#e5e5e5",
+              "border-heavy": "#000000",
+              "accent-sepia": "#B35A1E"
+            },
+            fontFamily: {
+              "mincho": ["Noto Serif JP", "serif"]
+            }
+          },
+        },
+      }
+    </script>
+<style type="text/tailwindcss">
+        body {
+            font-family: 'Noto Serif JP', serif;
+            -webkit-font-smoothing: antialiased;
+            background-color: #fdfcf9;
+            color: #1a1a1a;
+        }
+        .archival-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            border-top: 1px solid #000;
+            border-left: 1px solid #000;
+        }
+        .archival-cell {
+            border-right: 1px solid #000;
+            border-bottom: 1px solid #000;
+            padding: 1.5rem;
+        }
+        .vertical-text {
+            writing-mode: vertical-rl;
+        }
+        .line-clamp-3 {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        ::selection {
+            background-color: #B35A1E;
+            color: #fff;
+        }
+        .cassette-texture {
+            background-image: radial-gradient(circle at 50% 50%, rgba(0,0,0,0.02) 0%, transparent 80%);
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+<header class="w-full border-b border-black">
+<div class="max-w-[1600px] mx-auto flex justify-between items-stretch">
+<div class="p-8 border-r border-black flex-1">
+<h1 class="text-4xl font-black tracking-tighter uppercase">MATSUSHIMA CHIHIRO</h1>
+<p class="text-[10px] tracking-[0.3em] mt-2 font-light">ARCHIVE-LOG / PERSONAL REPOSITORY v1.0</p>
+</div>
+<nav class="flex">
+<a class="border-r border-black p-8 flex items-center justify-center hover:bg-black hover:text-white transition-colors duration-200" href="#">
+<span class="text-xs font-bold tracking-[0.2em] uppercase">01. JOURNAL</span>
+</a>
+<a class="border-r border-black p-8 flex items-center justify-center hover:bg-black hover:text-white transition-colors duration-200" href="#">
+<span class="text-xs font-bold tracking-[0.2em] uppercase">02. WORKS</span>
+</a>
+<a class="border-r border-black p-8 flex items-center justify-center hover:bg-black hover:text-white transition-colors duration-200" href="#">
+<span class="text-xs font-bold tracking-[0.2em] uppercase">03. PROFILE</span>
+</a>
+<a class="p-8 flex items-center justify-center hover:bg-black hover:text-white transition-colors duration-200" href="#">
+<span class="material-symbols-outlined scale-75">barcode_scanner</span>
+</a>
+</nav>
+</div>
+</header>
+<main class="max-w-[1600px] mx-auto">
+<div class="flex border-b border-black text-[10px] tracking-widest font-medium uppercase bg-white/50 backdrop-blur-sm">
+<div class="px-8 py-2 border-r border-black">SYSTEM: STABLE</div>
+<div class="px-8 py-2 border-r border-black">LOC: TOKYO, JP</div>
+<div class="px-8 py-2 border-r border-black">UPDATED: 2024.05.24</div>
+<div class="px-8 py-2 flex-grow">MODE: MONOCHROME_EXHAUSTIVE</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 border-l border-black">
+<aside class="md:col-span-1 border-r border-black flex items-center justify-center py-12 bg-[#f9f7f2]">
+<div class="vertical-text text-6xl font-black opacity-10 tracking-widest leading-none">
+                INDEX_FILE
+            </div>
+</aside>
+<div class="md:col-span-11">
+<div class="grid grid-cols-1 md:grid-cols-3">
+<article class="md:col-span-2 border-r border-b border-black p-12 bg-white flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-12">
+<span class="text-xs font-bold border border-black px-2 py-1">FEATURED_ENTRY_001</span>
+<span class="text-xs font-mono">ID: 20240524-A</span>
+</div>
+<div class="flex gap-8 items-start">
+<img alt="thumbnail" class="w-32 h-32 object-cover grayscale border border-black p-1" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnzUqXdA2v-qz7y73q-hXSlGP8dbux40xBQzB2CaetP5hBeefCnDUx3zQEtaQHRUl4KvCALXiTsuGb4RVwdAnuVaHE3Vz_dlcuyajAh__N7zgJBRKjfy2WWgsWBmo7k494m8nk_tnk24uUfPDX_QkLjT8kv38hI6fE4ZnLjMr9WtPzTXaNl-Gw56-jYFNeeVLRQLoiTWPL2yr48f8YJxU1vlWnubOs53ENRNqUT7DoeGNktuvBLIiE1YDyY7B8SxXx1TxhOUhBbLI"/>
+<div>
+<time class="block text-xs font-medium tracking-widest mb-2">2024.05.24</time>
+<h2 class="text-5xl font-bold leading-tight tracking-tighter mb-6">光の粒をすくうように、日々を綴る。</h2>
+<p class="text-sm leading-relaxed max-w-lg mb-8">
+                                目覚めてすぐの静寂や、夕暮れ時の淡い影。そんな、名前のない時間を大切に掬い上げていきたいと思っています。日々の断片を記録し、言葉という器に収める作業を。
+                            </p>
+</div>
+</div>
+</div>
+<div class="pt-8 border-t border-black/10 flex justify-between items-center">
+<span class="text-[10px] tracking-widest opacity-40">READ_FULL_TRANSCRIPT_AVAILABLE</span>
+<a class="text-xs font-black uppercase hover:underline" href="#">ACCESS_ENTRY →</a>
+</div>
+</article>
+<div class="md:col-span-1 border-r border-b border-black p-12 bg-black text-white flex flex-col justify-center">
+<div class="space-y-6">
+<div>
+<p class="text-[10px] tracking-widest opacity-50 mb-2">COLLECTION_DESC</p>
+<p class="text-sm font-light leading-relaxed">言葉と視点で、物語を編む。執筆、編集、そして日々の暮らしを彩る企画。企業の想いを言葉にするお手伝いや、ライフスタイル誌への寄稿など。</p>
+</div>
+<div class="pt-6 border-t border-white/20">
+<p class="text-[10px] tracking-widest opacity-50 mb-2">CATEGORY_TAGS</p>
+<div class="flex flex-wrap gap-2">
+<span class="text-[10px] border border-white/40 px-2 py-0.5">WRITING</span>
+<span class="text-[10px] border border-white/40 px-2 py-0.5">PHOTOGRAPHY</span>
+<span class="text-[10px] border border-white/40 px-2 py-0.5">PRODUCE</span>
+<span class="text-[10px] border border-white/40 px-2 py-0.5">EDITING</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Audio Player Section -->
+<section class="border-r border-b border-black p-12 bg-[#fdfcf9]">
+<div class="flex flex-col md:flex-row gap-12 items-center">
+<div class="w-full md:w-1/3">
+<div class="flex items-center gap-2 mb-6">
+<span class="text-xs font-bold border border-black px-2 py-0.5">RADIO_042</span>
+<h2 class="text-2xl font-bold tracking-tight">日々の音（Radio）</h2>
+</div>
+<p class="text-sm font-light leading-relaxed mb-8 opacity-70">
+                        「静寂を聴く」をテーマに、フィールドレコーディングと独り言を交えた不定期配信。第42回は「雨上がりの庭と、古いピアノ」。
+                    </p>
+<div class="space-y-1">
+<div class="flex justify-between text-[10px] font-mono opacity-50 uppercase tracking-tighter">
+<span>00:42 / 12:05</span>
+<span>Playing...</span>
+</div>
+<div class="w-full h-[2px] bg-black/10 relative">
+<div class="absolute top-0 left-0 h-full bg-accent-sepia w-[15%]"></div>
+<div class="absolute top-1/2 left-[15%] w-2 h-2 bg-accent-sepia rounded-full -translate-y-1/2 shadow-sm"></div>
+</div>
+</div>
+<div class="flex items-center justify-between mt-6">
+<div class="flex items-center gap-6">
+<button class="material-symbols-outlined text-xl opacity-40 hover:opacity-100 transition-opacity">fast_rewind</button>
+<button id="play-button" class="w-12 h-12 rounded-full border border-black flex items-center justify-center hover:bg-black hover:text-white transition-all">
+<span id="play-icon" class="material-symbols-outlined fill-1">play_arrow</span>
+</button>
+<button class="material-symbols-outlined text-xl opacity-40 hover:opacity-100 transition-opacity">fast_forward</button>
+</div>
+<button class="text-[10px] font-black tracking-widest uppercase hover:underline">Transcript →</button>
+</div>
+</div>
+<div class="w-full md:w-2/3 flex justify-center">
+<div class="relative max-w-md w-full aspect-[1.6/1] bg-white border border-black/20 p-4 cassette-texture shadow-[20px_20px_60px_-15px_rgba(0,0,0,0.05)] rounded-sm">
+<div class="absolute inset-4 border border-black/10 flex flex-col">
+<div class="p-4 border-b border-black/10 flex justify-between items-start">
+<div>
+<div class="text-[8px] font-mono opacity-30 mb-1">TYPE: I / NORMAL BIAS</div>
+<div class="text-xs font-bold tracking-widest opacity-60">HIBI NO OTO #042</div>
+</div>
+<div class="w-8 h-8 border border-black/10 rounded-full flex items-center justify-center opacity-20">
+<span class="text-[8px] font-mono">90</span>
+</div>
+</div>
+<div class="flex-grow flex items-center justify-center gap-12 py-4">
+<div class="w-16 h-16 border-2 border-black/5 rounded-full flex items-center justify-center relative overflow-hidden bg-[#eee]">
+<div class="w-4 h-4 bg-black/10 rounded-full"></div>
+<div class="absolute w-full h-full border-t border-black/10 animate-[spin_4s_linear_infinite]"></div>
+</div>
+<div class="w-24 h-12 border border-black/10 bg-neutral-50/50 rounded flex items-center justify-center overflow-hidden">
+<div class="flex gap-0.5 items-end h-6">
+<div class="w-1 bg-accent-sepia/20 h-2"></div>
+<div class="w-1 bg-accent-sepia/40 h-4"></div>
+<div class="w-1 bg-accent-sepia/60 h-6"></div>
+<div class="w-1 bg-accent-sepia/40 h-3"></div>
+<div class="w-1 bg-accent-sepia/20 h-5"></div>
+<div class="w-1 bg-accent-sepia/50 h-4"></div>
+<div class="w-1 bg-accent-sepia/30 h-2"></div>
+</div>
+</div>
+<div class="w-16 h-16 border-2 border-black/5 rounded-full flex items-center justify-center relative overflow-hidden bg-[#eee]">
+<div class="w-4 h-4 bg-black/10 rounded-full"></div>
+<div class="absolute w-full h-full border-t border-black/10 animate-[spin_4s_linear_infinite]"></div>
+</div>
+</div>
+<div class="p-4 border-t border-black/10 flex justify-center gap-1">
+<div class="w-1.5 h-1.5 rounded-full bg-black/5"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-black/5"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-black/5"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-black/5"></div>
+</div>
+</div>
+<div class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-48 h-4 bg-black/5 blur-sm"></div>
+</div>
+</div>
+</div>
+</section>
+<div class="grid grid-cols-1 md:grid-cols-3">
+<article class="border-r border-b border-black p-8 group hover:bg-black hover:text-white transition-all duration-300">
+<div class="flex justify-between items-start mb-6">
+<img alt="thumb" class="w-16 h-16 object-cover grayscale border border-black p-0.5 group-hover:border-white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIbcboON6FMkoTtRdP1VYEAICsPcc9ouGIbLzNxK-QhhX9Omx_dVV0_j8M5LRb89XHkED59D0P1vWOXgs9OzqOI1bUDVzmEo_E135hAtPbmJZpo9e-KhqrhUf5ol4yqdxjt9UqcxnjaEL1VQPETSXpw1oryelWtV8-mDpUobNASSjvyuzCAhpbXt2p3PevQHk9Udy8AD56yWE1iLwrNEHtev5ddaagfVKuekXQt89f5Cf2-8_FDKAUQh4m4UlglT_fmGhY6l_SOB0"/>
+<span class="text-[10px] font-mono opacity-50">LOG.002</span>
+</div>
+<time class="block text-[10px] tracking-widest mb-2 font-bold">2024.05.20</time>
+<h3 class="text-xl font-bold mb-4">雨の音と、煮込み料理</h3>
+<p class="text-xs leading-loose line-clamp-3 opacity-80">
+                    しとしとと降り続く雨の日は、キッチンにこもるのが一番。コトコトと鍋が鳴る音を聞きながら、読みかけの本を開く。
+                </p>
+</article>
+<article class="border-r border-b border-black p-8 group hover:bg-black hover:text-white transition-all duration-300">
+<div class="flex justify-between items-start mb-6">
+<img alt="thumb" class="w-16 h-16 object-cover grayscale border border-black p-0.5 group-hover:border-white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoBcD9VyGlZH99oFzFt-AeJlWqy2jHyj7A5f1nsAVQX3LJ-qAAHiWOc7K-WXsaKzVhuuCZN63ovIYLYCA3Tdvei30mbTKOYsq9KZvcTzj5NbtP15-agUXvC1TCdtFw3V8kV1BfDAm4qo2C1YD88nKmqtNfu0Il57fS26kKxKhveGAVv7CLyApiWm-f6gGGasJRTuytgxWNSW8wPaQJyj5z-BKISEavgmy05dBAWy1KN5bsg0-TT8_32umpIIG_Ok3lcJPyWgENTjU"/>
+<span class="text-[10px] font-mono opacity-50">LOG.003</span>
+</div>
+<time class="block text-[10px] tracking-widest mb-2 font-bold">2024.05.15</time>
+<h3 class="text-xl font-bold mb-4">手紙を書く。</h3>
+<p class="text-xs leading-loose line-clamp-3 opacity-80">
+                    誰かのことを想いながらペンを走らせる時間は、今の私にとって最も清らかな呼吸のようなものです。手紙の温かさを再確認する午後。
+                </p>
+</article>
+<article class="border-r border-b border-black p-8 group hover:bg-black hover:text-white transition-all duration-300">
+<div class="flex justify-between items-start mb-6">
+<div class="w-16 h-16 border border-black flex items-center justify-center group-hover:border-white">
+<span class="material-symbols-outlined text-lg">auto_stories</span>
+</div>
+<span class="text-[10px] font-mono opacity-50">LOG.004</span>
+</div>
+<time class="block text-[10px] tracking-widest mb-2 font-bold">2024.05.08</time>
+<h3 class="text-xl font-bold mb-4">「丁寧」という言葉の、本当の意味を探して。</h3>
+<p class="text-xs leading-loose line-clamp-3 opacity-80">
+                    流行りの言葉ではなく、自分自身の肌感覚で納得できる「心地よさ」を、ひとつずつ手繰り寄せていくこと。それは時に孤独な作業ですが。
+                </p>
+</article>
+<article class="border-r border-b border-black p-8 group hover:bg-black hover:text-white transition-all duration-300 opacity-60">
+<div class="flex justify-between items-start mb-6">
+<div class="w-16 h-16 bg-neutral-100 border border-black/10 group-hover:bg-neutral-900 group-hover:border-white/20"></div>
+<span class="text-[10px] font-mono opacity-50">LOG.005</span>
+</div>
+<time class="block text-[10px] tracking-widest mb-2 font-bold">2024.04.30</time>
+<h3 class="text-xl font-bold mb-4">朝のコーヒーと、窓辺の影</h3>
+<p class="text-xs leading-loose line-clamp-3 opacity-80">
+                    静かな朝に立ち上る湯気を見つめていると、世界がゆっくりと呼吸を始めたような感覚になる。
+                </p>
+</article>
+<article class="border-r border-b border-black p-8 group hover:bg-black hover:text-white transition-all duration-300 opacity-60">
+<div class="flex justify-between items-start mb-6">
+<div class="w-16 h-16 bg-neutral-100 border border-black/10 group-hover:bg-neutral-900 group-hover:border-white/20"></div>
+<span class="text-[10px] font-mono opacity-50">LOG.006</span>
+</div>
+<time class="block text-[10px] tracking-widest mb-2 font-bold">2024.04.22</time>
+<h3 class="text-xl font-bold mb-4">古本屋で見つけた、誰かの栞</h3>
+<p class="text-xs leading-loose line-clamp-3 opacity-80">
+                    街角の小さな書店で手にした一冊に、押し花のような栞が挟まっていた。時を越えて誰かの記憶に触れる瞬間。
+                </p>
+</article>
+<article class="border-r border-b border-black p-8 flex items-center justify-center bg-[#fdfcf9] group hover:bg-black hover:text-white transition-all cursor-pointer">
+<span class="text-[10px] font-black tracking-[0.5em] uppercase">VIEW_ALL_RECORDS</span>
+</article>
+</div>
+</div>
+</div>
+</main>
+<footer class="border-t border-black bg-white mt-12">
+<div class="max-w-[1600px] mx-auto grid grid-cols-1 md:grid-cols-4">
+<div class="p-8 border-r border-black flex flex-col justify-between h-64">
+<h4 class="text-xs font-black tracking-widest uppercase">IDENTITY</h4>
+<div class="text-sm font-light">
+                まつしまちひろ / Chihiro Matsushima<br/>
+                Writer / Editor / Producer
+            </div>
+</div>
+<div class="p-8 border-r border-black flex flex-col justify-between h-64">
+<h4 class="text-xs font-black tracking-widest uppercase">NETWORK</h4>
+<nav class="flex flex-col space-y-2">
+<a class="text-xs hover:line-through uppercase" href="#">INSTAGRAM_LINK</a>
+<a class="text-xs hover:line-through uppercase" href="#">NOTE_LINK</a>
+<a class="text-xs hover:line-through uppercase" href="#">CONTACT_FORM</a>
+</nav>
+</div>
+<div class="p-8 border-r border-black flex flex-col justify-between h-64">
+<h4 class="text-xs font-black tracking-widest uppercase">STATISTICS</h4>
+<div class="text-[10px] font-mono leading-relaxed opacity-50">
+                TOTAL_ENTRIES: 124<br/>
+                WORDS_ARCHIVED: 89,420<br/>
+                LAST_SYNC: +0900 JST
+            </div>
+</div>
+<div class="p-8 flex flex-col justify-between h-64 bg-black text-white">
+<div class="flex justify-end">
+<span class="material-symbols-outlined text-4xl">inventory_2</span>
+</div>
+<p class="text-[10px] tracking-widest text-right">© 2024 MATSUSHIMA CHIHIRO<br/>ALL DATA RIGHTS RESERVED</p>
+</div>
+</div>
+</footer>
+<audio id="audio-player" src="toki.m4a"></audio>
+</body>
+<script>
+  const audio = document.getElementById('audio-player');
+  const playBtn = document.getElementById('play-button');
+  const playIcon = document.getElementById('play-icon');
+
+  playBtn.addEventListener('click', () => {
+    if (audio.paused) {
+      audio.play();
+      playIcon.textContent = 'pause'; 
+    } else {
+      audio.pause();
+      playIcon.textContent = 'play_arrow';
+    }
+  });
+</script>
+</html>
+
