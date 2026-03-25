@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-
 <html class="light" lang="ja"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;700;900&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;700;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script id="tailwind-config">
       tailwind.config = {
@@ -58,6 +57,64 @@
         }
         .cassette-texture {
             background-image: radial-gradient(circle at 50% 50%, rgba(0,0,0,0.02) 0%, transparent 80%);
+        }
+
+        /* Cassette reel animation - paused by default */
+        .cassette-reel {
+            animation: spin 3s linear infinite;
+            animation-play-state: paused;
+        }
+        .cassette-playing .cassette-reel {
+            animation-play-state: running;
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Equalizer bar animations - paused by default */
+        .eq-bar {
+            transition: height 0.1s ease;
+            animation-play-state: paused;
+        }
+        .cassette-playing .eq-bar {
+            animation-play-state: running;
+        }
+        .eq-bar-1 { animation: eqBounce1 0.8s ease-in-out infinite; }
+        .eq-bar-2 { animation: eqBounce2 0.6s ease-in-out infinite; }
+        .eq-bar-3 { animation: eqBounce3 0.7s ease-in-out infinite; }
+        .eq-bar-4 { animation: eqBounce4 0.5s ease-in-out infinite; }
+        .eq-bar-5 { animation: eqBounce5 0.9s ease-in-out infinite; }
+        .eq-bar-6 { animation: eqBounce6 0.55s ease-in-out infinite; }
+        .eq-bar-7 { animation: eqBounce7 0.75s ease-in-out infinite; }
+
+        @keyframes eqBounce1 {
+            0%, 100% { height: 0.5rem; }
+            50% { height: 1.2rem; }
+        }
+        @keyframes eqBounce2 {
+            0%, 100% { height: 1rem; }
+            50% { height: 0.3rem; }
+        }
+        @keyframes eqBounce3 {
+            0%, 100% { height: 1.5rem; }
+            50% { height: 0.6rem; }
+        }
+        @keyframes eqBounce4 {
+            0%, 100% { height: 0.75rem; }
+            50% { height: 1.4rem; }
+        }
+        @keyframes eqBounce5 {
+            0%, 100% { height: 1.25rem; }
+            50% { height: 0.4rem; }
+        }
+        @keyframes eqBounce6 {
+            0%, 100% { height: 1rem; }
+            50% { height: 1.5rem; }
+        }
+        @keyframes eqBounce7 {
+            0%, 100% { height: 0.5rem; }
+            50% { height: 1rem; }
         }
     </style>
 </head>
@@ -152,27 +209,27 @@
                     </p>
 <div class="space-y-1">
 <div class="flex justify-between text-[10px] font-mono opacity-50 uppercase tracking-tighter">
-<span>00:42 / 12:05</span>
-<span>Playing...</span>
+<span id="time-display">00:00 / 00:00</span>
+<span id="status-display">Stopped</span>
 </div>
-<div class="w-full h-[2px] bg-black/10 relative">
-<div class="absolute top-0 left-0 h-full bg-accent-sepia w-[15%]"></div>
-<div class="absolute top-1/2 left-[15%] w-2 h-2 bg-accent-sepia rounded-full -translate-y-1/2 shadow-sm"></div>
+<div class="w-full h-[2px] bg-black/10 relative cursor-pointer" id="progress-bar">
+<div id="progress-fill" class="absolute top-0 left-0 h-full bg-accent-sepia w-[0%] transition-[width] duration-200"></div>
+<div id="progress-knob" class="absolute top-1/2 left-[0%] w-2 h-2 bg-accent-sepia rounded-full -translate-y-1/2 shadow-sm transition-[left] duration-200"></div>
 </div>
 </div>
 <div class="flex items-center justify-between mt-6">
 <div class="flex items-center gap-6">
-<button class="material-symbols-outlined text-xl opacity-40 hover:opacity-100 transition-opacity">fast_rewind</button>
+<button class="material-symbols-outlined text-xl opacity-40 hover:opacity-100 transition-opacity" id="rewind-btn">fast_rewind</button>
 <button id="play-button" class="w-12 h-12 rounded-full border border-black flex items-center justify-center hover:bg-black hover:text-white transition-all">
 <span id="play-icon" class="material-symbols-outlined fill-1">play_arrow</span>
 </button>
-<button class="material-symbols-outlined text-xl opacity-40 hover:opacity-100 transition-opacity">fast_forward</button>
+<button class="material-symbols-outlined text-xl opacity-40 hover:opacity-100 transition-opacity" id="forward-btn">fast_forward</button>
 </div>
 <button class="text-[10px] font-black tracking-widest uppercase hover:underline">Transcript →</button>
 </div>
 </div>
 <div class="w-full md:w-2/3 flex justify-center">
-<div class="relative max-w-md w-full aspect-[1.6/1] bg-white border border-black/20 p-4 cassette-texture shadow-[20px_20px_60px_-15px_rgba(0,0,0,0.05)] rounded-sm">
+<div id="cassette" class="relative max-w-md w-full aspect-[1.6/1] bg-white border border-black/20 p-4 cassette-texture shadow-[20px_20px_60px_-15px_rgba(0,0,0,0.05)] rounded-sm">
 <div class="absolute inset-4 border border-black/10 flex flex-col">
 <div class="p-4 border-b border-black/10 flex justify-between items-start">
 <div>
@@ -184,24 +241,27 @@
 </div>
 </div>
 <div class="flex-grow flex items-center justify-center gap-12 py-4">
+<!-- Left reel -->
 <div class="w-16 h-16 border-2 border-black/5 rounded-full flex items-center justify-center relative overflow-hidden bg-[#eee]">
 <div class="w-4 h-4 bg-black/10 rounded-full"></div>
-<div class="absolute w-full h-full border-t border-black/10 animate-[spin_4s_linear_infinite]"></div>
+<div class="cassette-reel absolute w-full h-full border-t border-black/10"></div>
 </div>
+<!-- Equalizer -->
 <div class="w-24 h-12 border border-black/10 bg-neutral-50/50 rounded flex items-center justify-center overflow-hidden">
 <div class="flex gap-0.5 items-end h-6">
-<div class="w-1 bg-accent-sepia/20 h-2"></div>
-<div class="w-1 bg-accent-sepia/40 h-4"></div>
-<div class="w-1 bg-accent-sepia/60 h-6"></div>
-<div class="w-1 bg-accent-sepia/40 h-3"></div>
-<div class="w-1 bg-accent-sepia/20 h-5"></div>
-<div class="w-1 bg-accent-sepia/50 h-4"></div>
-<div class="w-1 bg-accent-sepia/30 h-2"></div>
+<div class="w-1 bg-accent-sepia/20 eq-bar eq-bar-1" style="height:0.5rem"></div>
+<div class="w-1 bg-accent-sepia/40 eq-bar eq-bar-2" style="height:1rem"></div>
+<div class="w-1 bg-accent-sepia/60 eq-bar eq-bar-3" style="height:1.5rem"></div>
+<div class="w-1 bg-accent-sepia/40 eq-bar eq-bar-4" style="height:0.75rem"></div>
+<div class="w-1 bg-accent-sepia/20 eq-bar eq-bar-5" style="height:1.25rem"></div>
+<div class="w-1 bg-accent-sepia/50 eq-bar eq-bar-6" style="height:1rem"></div>
+<div class="w-1 bg-accent-sepia/30 eq-bar eq-bar-7" style="height:0.5rem"></div>
 </div>
 </div>
+<!-- Right reel -->
 <div class="w-16 h-16 border-2 border-black/5 rounded-full flex items-center justify-center relative overflow-hidden bg-[#eee]">
 <div class="w-4 h-4 bg-black/10 rounded-full"></div>
-<div class="absolute w-full h-full border-t border-black/10 animate-[spin_4s_linear_infinite]"></div>
+<div class="cassette-reel absolute w-full h-full border-t border-black/10"></div>
 </div>
 </div>
 <div class="p-4 border-t border-black/10 flex justify-center gap-1">
@@ -320,16 +380,75 @@
   const audio = document.getElementById('audio-player');
   const playBtn = document.getElementById('play-button');
   const playIcon = document.getElementById('play-icon');
+  const cassette = document.getElementById('cassette');
+  const timeDisplay = document.getElementById('time-display');
+  const statusDisplay = document.getElementById('status-display');
+  const progressFill = document.getElementById('progress-fill');
+  const progressKnob = document.getElementById('progress-knob');
+  const progressBar = document.getElementById('progress-bar');
+  const rewindBtn = document.getElementById('rewind-btn');
+  const forwardBtn = document.getElementById('forward-btn');
 
+  function formatTime(sec) {
+    if (isNaN(sec)) return '00:00';
+    const m = Math.floor(sec / 60).toString().padStart(2, '0');
+    const s = Math.floor(sec % 60).toString().padStart(2, '0');
+    return m + ':' + s;
+  }
+
+  // Play/Pause toggle
   playBtn.addEventListener('click', () => {
     if (audio.paused) {
       audio.play();
-      playIcon.textContent = 'pause'; 
     } else {
       audio.pause();
-      playIcon.textContent = 'play_arrow';
     }
+  });
+
+  // Sync UI with audio events
+  audio.addEventListener('play', () => {
+    playIcon.textContent = 'pause';
+    cassette.classList.add('cassette-playing');
+    statusDisplay.textContent = 'Playing...';
+  });
+
+  audio.addEventListener('pause', () => {
+    playIcon.textContent = 'play_arrow';
+    cassette.classList.remove('cassette-playing');
+    statusDisplay.textContent = 'Paused';
+  });
+
+  audio.addEventListener('ended', () => {
+    playIcon.textContent = 'play_arrow';
+    cassette.classList.remove('cassette-playing');
+    statusDisplay.textContent = 'Stopped';
+  });
+
+  // Progress bar update
+  audio.addEventListener('timeupdate', () => {
+    if (audio.duration) {
+      const pct = (audio.currentTime / audio.duration) * 100;
+      progressFill.style.width = pct + '%';
+      progressKnob.style.left = pct + '%';
+      timeDisplay.textContent = formatTime(audio.currentTime) + ' / ' + formatTime(audio.duration);
+    }
+  });
+
+  // Click to seek on progress bar
+  progressBar.addEventListener('click', (e) => {
+    if (audio.duration) {
+      const rect = progressBar.getBoundingClientRect();
+      const pct = (e.clientX - rect.left) / rect.width;
+      audio.currentTime = pct * audio.duration;
+    }
+  });
+
+  // Rewind / Forward 10s
+  rewindBtn.addEventListener('click', () => {
+    audio.currentTime = Math.max(0, audio.currentTime - 10);
+  });
+  forwardBtn.addEventListener('click', () => {
+    audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 10);
   });
 </script>
 </html>
-
